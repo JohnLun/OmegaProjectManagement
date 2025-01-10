@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
 import "./App.css";
-import Column from "./Column";
+import Kanban from "./pages/Kanban";
 
 function App() {
     
 
     return (
-        <Column></Column>
+
+        <Kanban></Kanban>
     );
 }
 

@@ -18,6 +18,15 @@ namespace OmegaProjectManagement.Server
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
+            const string CorsPolicyName = "AllowSwaggerOrigin";
+            builder.Services.AddCors(options =>
+            {
+                options.AddPolicy("MyPolicy", builder =>
+                {
+                    builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader();
+                });
+            });
+
             builder.Services.AddDbContext<PmContext>(options =>
             {
                 options.UseNpgsql(builder.Configuration.GetConnectionString("PmContext"));
@@ -37,9 +46,10 @@ namespace OmegaProjectManagement.Server
 
             app.UseHttpsRedirection();
 
+            app.UseCors("MyPolicy");
             app.UseAuthorization();
 
-
+            
             app.MapControllers();
 
             app.MapFallbackToFile("/index.html");
