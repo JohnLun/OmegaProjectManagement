@@ -1,18 +1,32 @@
 import React, { useState } from "react";
-
+import { DragDropContext } from "react-beautiful-dnd";
 import Column from "../components/Column.jsx";
 
 function App() {
-    
+    const [showModal, setShowModal] = useState(false);
+
+    const handleCreateStory = () => {
+        console.log("clicked");
+        setShowModal(true);
+    };
+
+    const handleCloseModal = () => {
+        setShowModal(false);
+    };
 
     return (
         <>
-            <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <h2 class="navbar-heading p-3">Omega</h2>
-                <div class="d-flex justify-content-end w-100">
-                    <button class="btn btn-outline-success my-2 " type="submit">Create Story</button>
+            <nav className="navbar navbar-expand-lg navbar-light bg-light">
+                <h2 className="navbar-heading p-3">Omega</h2>
+                <div className="d-flex justify-content-end w-100">
+                    <button
+                        className="btn btn-outline-success my-2"
+                        type="button"
+                        onClick={handleCreateStory}
+                    >
+                        Create Story
+                    </button>
                 </div>
-                
             </nav>
 
             <div className="container-fluid mt-4" style={{ height: "calc(100vh - 56px)" }}>
@@ -32,6 +46,64 @@ function App() {
                 </div>
             </div>
 
+            {/* Modal */}
+            {showModal && (
+                <div
+                    className="modal fade show"
+                    style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}
+                >
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header">
+                                <h5 className="modal-title">Create Story</h5>
+                                <button
+                                    type="button"
+                                    className="btn-close"
+                                    onClick={handleCloseModal}
+                                ></button>
+                            </div>
+                            <div className="modal-body">
+                                <form>
+                                    <div className="mb-3">
+                                        <label htmlFor="storyName" className="form-label">
+                                            Story Name
+                                        </label>
+                                        <input
+                                            type="text"
+                                            className="form-control"
+                                            id="storyName"
+                                            placeholder="Enter story name"
+                                        />
+                                    </div>
+                                    <div className="mb-3">
+                                        <label htmlFor="storyDescription" className="form-label">
+                                            Story Description
+                                        </label>
+                                        <textarea
+                                            className="form-control"
+                                            id="storyDescription"
+                                            rows="3"
+                                            placeholder="Enter story description"
+                                        ></textarea>
+                                    </div>
+                                </form>
+                            </div>
+                            <div className="modal-footer">
+                                <button
+                                    type="button"
+                                    className="btn btn-secondary"
+                                    onClick={handleCloseModal}
+                                >
+                                    Close
+                                </button>
+                                <button type="button" className="btn btn-primary">
+                                    Save Story
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            )}
         </>
     );
 }
