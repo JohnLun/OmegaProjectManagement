@@ -41,21 +41,7 @@ function Column({ name, endpoint }) {
             <div className="row">{name}</div>
             
             {stories.map((story) => (
-                <div className="row" key={story.storyId}>
-                    <div className="col-12">
-                        <div className="card mb-4"> {/* Add margin-bottom to space out the cards */}
-                            <div className="card-body">
-                                <h5 className="card-title">{story.storyName}</h5>
-                                <p className="card-text">{story.storyDescription}</p>
-                                <p className="card-text">
-                                    <small className="text-muted">
-                                        {story.firstName} {story.lastName}
-                                    </small>
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <Story story={story}></Story>
             ))}
         </>
     );
