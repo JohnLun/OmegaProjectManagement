@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+
 import Column from "../components/Column.jsx";
 
 function App() {
@@ -16,35 +16,39 @@ function App() {
 
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <h2 className="navbar-heading p-3">Omega</h2>
-                <div className="d-flex justify-content-end w-100">
-                    <button
-                        className="btn btn-outline-success my-2"
-                        type="button"
-                        onClick={handleCreateStory}
-                    >
-                        Create Story
-                    </button>
-                </div>
-            </nav>
+            <div className="bg-secondary">
+                <nav className="navbar navbar-expand-lg navbar-dark">
+                    <h2 className="navbar-heading text-nowrap p-3">Omega PM</h2>
+                    <div className="d-flex justify-content-end w-100">
+                        <button
+                            className="btn btn-danger btn-lg my-2 me-3 border border-white"
+                            type="button"
+                            onClick={handleCreateStory}
+                        >
+                            Create Story
+                        </button>
+                    </div>
+                </nav>
 
-            <div className="container-fluid mt-4" style={{ height: "calc(100vh - 56px)" }}>
-                <div className="d-flex justify-content-between h-100" style={{ gap: "1rem" }}>
-                    <div className="bg-primary text-black p-4" style={{ flex: "1", maxWidth: "24%" }}>
-                        <Column name="Backlog" endpoint="backlog"></Column>
-                    </div>
-                    <div className="bg-primary text-black p-4" style={{ flex: "1", maxWidth: "24%" }}>
-                        <Column name="In Progress" endpoint="in-progress"></Column>
-                    </div>
-                    <div className="bg-primary text-black p-4" style={{ flex: "1", maxWidth: "24%" }}>
-                        <Column name="Ready For Testing" endpoint="in-testing"></Column>
-                    </div>
-                    <div className="bg-primary text-black p-4" style={{ flex: "1", maxWidth: "24%" }}>
-                        <Column name="Completed" endpoint="in-complete"></Column>
+                <div className="container-fluid mt-4" style={{ height: "calc(100vh - 56px)" }}>
+                    <div className="d-flex justify-content-between h-100" style={{ gap: "1rem" }}>
+                        <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+                            <Column name="Backlog" endpoint="backlog"></Column>
+                        </div>
+                        <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+                            <Column name="In Progress" endpoint="in-progress"></Column>
+                        </div>
+                        <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+                            <Column name="Ready For Testing" endpoint="in-testing"></Column>
+                        </div>
+                        <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+                            <Column name="Completed" endpoint="in-complete"></Column>
+                        </div>
                     </div>
                 </div>
+
             </div>
+            
 
             {/* Modal */}
             {showModal && (
