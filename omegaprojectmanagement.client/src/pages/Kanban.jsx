@@ -6,7 +6,6 @@ function App() {
     const [showModal, setShowModal] = useState(false);
 
     const handleCreateStory = () => {
-        console.log("clicked");
         setShowModal(true);
     };
 
