@@ -4,7 +4,7 @@ import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Story from "./Story";
 import './Column.css';
 
-function Column({ name, endpoint }) {
+function Column({ name, endpoint, onStorySaved }) {
     const [stories, setStories] = useState(
         [{
             firstName: "",
@@ -41,6 +41,10 @@ function Column({ name, endpoint }) {
 
     useEffect(() => {
     }, [stories]);
+
+    useEffect(() => {
+        fetchData(); // Pass the fetchData function to the parent
+    }, [onStorySaved]);
 
     const handleDeleteStory = () => {
         fetchData();
