@@ -133,21 +133,21 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                                     <img src={trash3} alt="trash" width="16" height="16" />
                                 </button>
                             </div>
-                            <h3 className="card-title pt-2 text-nowrap overflow-hidden text-truncate">{story.storyName}</h3>
+                            <h3 className="card-title pt-4 text-nowrap overflow-hidden text-truncate">{story.storyName}</h3>
                             <p className="card-text text-nowrap overflow-hidden text-truncate">{story.storyDescription}</p>
-                            <p className="card-text" >
+                            <p className="card-text pb-2" >
                                 <small className="text-muted">
                                     {story.firstName} {story.lastName}
                                 </small>
                             </p>
                             <div className="mt-auto d-flex justify-content-end">
-                                <button className="btn btn-success me-2" onClick={(e) => { 
+                                <button className="position-absolute bottom-0 start-0 btn btn-success me-2" onClick={(e) => { 
                                     e.stopPropagation(); 
                                     handleMoveLeft(); 
                                 }}>
                                     <img src={backward} alt="left" width="16" height="16" />
                                 </button>
-                                <button className="btn btn-success" onClick={(e) => { 
+                                <button className="position-absolute bottom-0 end-0 btn btn-success" onClick={(e) => { 
                                     e.stopPropagation(); 
                                     handleMoveRight(); 
                                 }}>
