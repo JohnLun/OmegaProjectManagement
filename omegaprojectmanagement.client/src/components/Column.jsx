@@ -37,7 +37,7 @@ function Column({ name, endpoint, onRegisterFetchData, refreshColumns }) {
 
     return (
         <>
-            <div className="row">{name}</div>
+            <div className="row p-2 bg-dark justify-content-center sticky-top">{name}</div>
             {stories.map((story) => (
                 <Story
                     key={story.storyId}

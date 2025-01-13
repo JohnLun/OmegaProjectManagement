@@ -116,7 +116,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
     return (
         <>
             <div 
-                className="row" 
+                className="row " 
                 key={story.storyId} 
                 onClick={handleStoryClick} // Trigger onClick when the card is clicked
                 style={{ cursor: "pointer" }} // Optional: Add pointer cursor for better UX
@@ -136,7 +136,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                                 <span className="text-muted me-2">#{story.storyId}</span>
                                 {story.storyName}
                             </h5>
-                            <p className="card-text">{story.storyDescription}</p>
+                            <p className="card-text overflow-hidden">{story.storyDescription}</p>
                             <p className="card-text">
                                 <small className="text-muted">
                                     {story.firstName} {story.lastName}
@@ -165,21 +165,21 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                 <div className="modal fade show" style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
                 <div className="modal-dialog">
                     <div className="modal-content">
-                    <div className="modal-header">
-                        <h5 className="modal-title">Create Story</h5>
+                    <div className="modal-header text-dark">
+                        <h5 className="modal-title">Edit Story</h5>
                         <button type="button" className="btn-close" onClick={handleCloseModal}></button>
                     </div>
                     <div className="modal-body">
                         <form>
-                        <div className="mb-3">
+                        <div className="mb-3 text-dark">
                             <label htmlFor="storyName" className="form-label">Story Name</label>
                             <input type="text" className="form-control" id="storyName" placeholder="Enter story name" value={storyName} onChange={(e) => setStoryName(e.target.value)} />
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-3 text-dark">
                             <label htmlFor="storyDescription" className="form-label">Story Description</label>
                             <textarea className="form-control" id="storyDescription" rows="3" placeholder="Enter story description" value={storyDescription} onChange={(e) => setStoryDescription(e.target.value)}></textarea>
                         </div>
-                        <div className="mb-3">
+                        <div className="mb-3 text-dark">
                             <label className="form-label">Assigned To</label>
                             <div className="row">
                             <div className="col-6">
