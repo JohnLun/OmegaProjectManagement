@@ -1,20 +1,37 @@
 .custom-scrollbar::-webkit-scrollbar {
-    width: 8px; /* Width of the scrollbar */
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-track {
-    background: transparent; /* Transparent background for the track */
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb {
+    width: 10px; /* Increased width of the scrollbar */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+    background: #f0f0f0; /* Light background for the track */
+    border-radius: 5px; /* Rounded corners */
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
     background: #808080; /* Gray color for the thumb */
-    border-radius: 4px; /* Rounded corners */
-  }
-  
-  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    background: #555555; /* Darker gray on hover */
-  }
-  
-  .navigation{
+    border-radius: 5px; /* Rounded corners */
+    border: 2px solid #f0f0f0; /* Adds space around the thumb */
+}
+
+    .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+        background: #555555; /* Darker gray on hover */
+    }
+
+.navigation {
     background-color: #e2e2e3;
-  }
+    padding: 10px; /* Added padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Added shadow */
+    border-bottom: 1px solid #ccc; /* Added border */
+}
+
+    .navigation a {
+        color: #333; /* Darker color for links */
+        text-decoration: none;
+        margin-right: 15px; /* Spacing between links */
+        font-weight: bold; /* Bold text */
+    }
+
+        .navigation a:hover {
+            color: #000; /* Darker color on hover */
+            text-decoration: underline; /* Underline on hover */
+        }

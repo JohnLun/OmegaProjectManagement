@@ -15,16 +15,19 @@
     background-color: #4682b4;
     border: 1px solid #333333;
     border-radius: 8px;
-    padding: 10px;
+    padding: 15px; /* Increased padding */
     display: flex;
     flex-direction: column;
     align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Added shadow */
 }
 
 .column-title {
-    font-size: 18px;
+    font-size: 20px; /* Increased font size */
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 15px; /* Increased margin */
+    color: #ffffff; /* White color for better contrast */
+    text-align: center;
 }
 
 /* Story item styles */
@@ -32,13 +35,19 @@
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    padding: 15px; /* Increased padding */
+    margin-bottom: 15px; /* Increased margin */
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s; /* Added transition */
 }
 
-.item:active {
-    cursor: grabbing;
-}
+    .item:hover {
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    }
+
+    .item:active {
+        cursor: grabbing;
+    }

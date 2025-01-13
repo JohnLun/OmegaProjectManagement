@@ -10,6 +10,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
     const [storyDescription, setStoryDescription] = useState(story.storyDescription);
     const [firstName, setFirstName] = useState(story.firstName);
     const [lastName, setLastName] = useState(story.lastName);
+    const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
 
     async function handleTrash() {
         const url = `https://localhost:7173/api/story/${story.storyId}`;
@@ -25,6 +26,20 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
             console.error('Error deleting story:', error);
         }
     }
+
+    function confirmDelete() {
+        setShowDeleteConfirm(true);
+    }
+
+    function cancelDelete() {
+        setShowDeleteConfirm(false);
+    }
+
+    function handleDelete() {
+        setShowDeleteConfirm(false);
+        handleTrash();
+    }
+
 
     async function moveStory(newStatus) {
         const url = `https://localhost:7173/api/story`;
@@ -115,41 +130,41 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
 
     return (
         <>
-            <div 
-                className="row " 
-                key={story.storyId} 
+            <div
+                className="row "
+                key={story.storyId}
                 onClick={handleStoryClick} // Trigger onClick when the card is clicked
                 style={{ cursor: "pointer" }} // Optional: Add pointer cursor for better UX
             >
                 <div className="col-12">
                     <div className="card mb-4">
                         <div className="card-body d-flex flex-column position-relative">
-                        <span className="text-muted me-2 position-absolute top-0 start-0">#{story.storyId}</span>
-                        <div className="position-absolute top-0 end-0">
-                                <button className="btn btn-danger mt-1 mx-1" onClick={(e) => { 
-                                    e.stopPropagation(); 
-                                    handleTrash(); 
+                            <span className="text-muted me-2 position-absolute top-0 start-0">#{story.storyId}</span>
+                            <div className="position-absolute top-0 end-0">
+                                <button className="btn btn-danger mt-1 mx-1" onClick={(e) => {
+                                    e.stopPropagation();
+                                    confirmDelete();
                                 }}>
                                     <img src={trash3} alt="trash" width="16" height="16" />
                                 </button>
                             </div>
                             <h3 className="card-title pt-4 text-nowrap overflow-hidden text-truncate">{story.storyName}</h3>
                             <p className="card-text text-nowrap overflow-hidden text-truncate">{story.storyDescription}</p>
-                            <p className="card-text pb-2" >
+                            <p className="card-text pb-2">
                                 <small className="text-muted">
                                     {story.firstName} {story.lastName}
                                 </small>
                             </p>
                             <div className="mt-auto d-flex justify-content-end">
-                                <button className="position-absolute  bottom-0 start-0 btn btn-success me-2" onClick={(e) => { 
-                                    e.stopPropagation(); 
-                                    handleMoveLeft(); 
+                                <button className="position-absolute bottom-0 start-0 btn btn-success me-2" onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleMoveLeft();
                                 }}>
                                     <img src={backward} alt="left" width="16" height="16" />
                                 </button>
-                                <button className="position-absolute bottom-0 end-0 btn btn-success" onClick={(e) => { 
-                                    e.stopPropagation(); 
-                                    handleMoveRight(); 
+                                <button className="position-absolute bottom-0 end-0 btn btn-success" onClick={(e) => {
+                                    e.stopPropagation();
+                                    handleMoveRight();
                                 }}>
                                     <img src={forward} alt="right" width="16" height="16" />
                                 </button>
@@ -161,45 +176,64 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
 
             {showModal && (
                 <div className="modal fade show" style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                    <div className="modal-header text-dark">
-                        <h5 className="modal-title">Edit Story</h5>
-                        <button type="button" className="btn-close" onClick={handleCloseModal}></button>
-                    </div>
-                    <div className="modal-body">
-                        <form>
-                        <div className="mb-3 text-dark">
-                            <label htmlFor="storyName" className="form-label">Story Name</label>
-                            <input type="text" className="form-control" id="storyName" placeholder="Enter story name" value={storyName} onChange={(e) => setStoryName(e.target.value)} />
-                        </div>
-                        <div className="mb-3 text-dark">
-                            <label htmlFor="storyDescription" className="form-label">Story Description</label>
-                            <textarea className="form-control" id="storyDescription" rows="3" placeholder="Enter story description" value={storyDescription} onChange={(e) => setStoryDescription(e.target.value)}></textarea>
-                        </div>
-                        <div className="mb-3 text-dark">
-                            <label className="form-label">Assigned To</label>
-                            <div className="row">
-                            <div className="col-6">
-                                <input type="text" className="form-control" id="firstName" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header text-dark">
+                                <h5 className="modal-title">Edit Story</h5>
+                                <button type="button" className="btn-close" onClick={handleCloseModal}></button>
                             </div>
-                            <div className="col-6">
-                                <input type="text" className="form-control" id="lastName" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                            <div className="modal-body">
+                                <form>
+                                    <div className="mb-3 text-dark">
+                                        <label htmlFor="storyName" className="form-label">Story Name</label>
+                                        <input type="text" className="form-control" id="storyName" placeholder="Enter story name" value={storyName} onChange={(e) => setStoryName(e.target.value)} />
+                                    </div>
+                                    <div className="mb-3 text-dark">
+                                        <label htmlFor="storyDescription" className="form-label">Story Description</label>
+                                        <textarea className="form-control" id="storyDescription" rows="3" placeholder="Enter story description" value={storyDescription} onChange={(e) => setStoryDescription(e.target.value)}></textarea>
+                                    </div>
+                                    <div className="mb-3 text-dark">
+                                        <label className="form-label">Assigned To</label>
+                                        <div className="row">
+                                            <div className="col-6">
+                                                <input type="text" className="form-control" id="firstName" placeholder="First Name" value={firstName} onChange={(e) => setFirstName(e.target.value)} />
+                                            </div>
+                                            <div className="col-6">
+                                                <input type="text" className="form-control" id="lastName" placeholder="Last Name" value={lastName} onChange={(e) => setLastName(e.target.value)} />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
+                                <button type="button" className="btn btn-primary" onClick={handleSaveStory}>Save Story</button>
                             </div>
                         </div>
-                        </form>
-                    </div>
-                    <div className="modal-footer">
-                        <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
-                        <button type="button" className="btn btn-primary" onClick={handleSaveStory}>Save Story</button>
-                    </div>
                     </div>
                 </div>
+            )}
+
+            {showDeleteConfirm && (
+                <div className="modal fade show" style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>
+                    <div className="modal-dialog">
+                        <div className="modal-content">
+                            <div className="modal-header text-dark">
+                                <h5 className="modal-title">Confirm Deletion</h5>
+                                <button type="button" className="btn-close" onClick={cancelDelete}></button>
+                            </div>
+                            <div className="modal-body">
+                                <p>Are you sure you want to delete this story?</p>
+                            </div>
+                            <div className="modal-footer">
+                                <button type="button" className="btn btn-secondary" onClick={cancelDelete}>Cancel</button>
+                                <button type="button" className="btn btn-danger" onClick={handleDelete}>Delete</button>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             )}
         </>
-        
     );
 }
 
