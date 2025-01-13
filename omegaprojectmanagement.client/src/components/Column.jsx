@@ -47,6 +47,9 @@ function Column({ name, endpoint, onRegisterFetchData, refreshColumns }) {
                     refreshColumns={refreshColumns} // Pass the refreshColumns prop to Story
                 />
             ))}
+
+
+
         </>
     );
 }
