@@ -1,14 +1,36 @@
 .item {
     background-color: #ffffff;
     border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    border-radius: 8px; /* Increased border radius */
+    padding: 15px; /* Increased padding */
+    margin-bottom: 15px; /* Increased margin */
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: grab;
+    transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s; /* Added transition */
 }
 
-.card:hover{
-    background-color: #daedf4;
+    .item:hover {
+        background-color: #f0f8ff; /* Light blue background on hover */
+        transform: translateY(-5px); /* Lift effect on hover */
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Enhanced shadow on hover */
+    }
+
+.card {
+    border-radius: 8px; /* Increased border radius */
+    transition: background-color 0.2s; /* Added transition */
+}
+
+    .card:hover {
+        background-color: #daedf4; /* Light blue background on hover */
+    }
+
+.card-title {
+    font-size: 20px; /* Increased font size */
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+p {
+    color: black;
 }
