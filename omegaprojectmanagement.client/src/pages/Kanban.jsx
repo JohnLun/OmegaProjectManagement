@@ -62,23 +62,20 @@ function App() {
 
   return (
     <>
-      <div className="bg-secondary">
-        <nav className="navigation navbar navbar-expand-lg rounded">
-          <h2 className="fw-bold navbar-heading text-nowrap p-3">Omega PM</h2>
-          <div className="d-flex justify-content-end w-100">
-            <button
-              className="btn btn-primary btn-lg my-2 me-3 border border-dark"
-              type="button"
-              onClick={handleCreateStory}
-            >
-              Create Story
-            </button>
-          </div>
+      <div className="body-bg">
+        <nav>
+          <h2>Omega PM</h2>
+          <button
+            type="button"
+            onClick={handleCreateStory}
+          >
+            Create Story
+          </button>
         </nav>
 
         <div className="container-fluid mt-4" style={{ height: "calc(100vh - 56px)" }}>
           <div className="d-flex justify-content-between h-100" style={{ gap: "1rem" }}>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-2 rounded border h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                   name="Backlog"
                   endpoint="backlog"
@@ -86,7 +83,7 @@ function App() {
                   refreshColumns={fetchDataCallbacks}
               />
             </div>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-2 rounded border h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                 name="In Progress"
                 endpoint="in-progress"
@@ -94,7 +91,7 @@ function App() {
                 refreshColumns={fetchDataCallbacks}
             />
             </div>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-2 rounded border h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                  name="Ready For Testing"
                  endpoint="in-testing"
@@ -102,7 +99,7 @@ function App() {
                  refreshColumns={fetchDataCallbacks}
               />
             </div>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-2 rounded border h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                  name="Completed"
                  endpoint="in-complete"
