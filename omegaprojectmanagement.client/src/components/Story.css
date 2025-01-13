@@ -1,4 +1,4 @@
-.item {
+/* .item {
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -11,4 +11,75 @@
 
 .card:hover{
     background-color: #daedf4;
+} */
+
+.card {
+    background: rgb(22, 24, 26);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+
+    p { margin: 0; }
 }
+
+.card-head {
+    font-size: 1rem;
+    display: flex;
+    align-items: start;
+    gap: .5rem;
+}
+
+.card-desc {
+    opacity: .75;
+}
+
+.card-user {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    img {
+        width: 1.25rem;
+    }
+}
+
+.card-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
+
+    button {
+        flex: 1;
+        border: none;
+        border-radius: 2rem;
+        padding: .25rem 1rem;
+    }
+}
+
+.delete-btn { background: red; }
+.arrow-btn { background: black; }
+
+
+
+/* Modal */
+/* .modal-content {
+    box-shadow: 0 0 1rem rgba(255, 255, 255, .5);
+
+}
+.modal-title {color: white}
+.modal-header, .modal-body, .modal-footer {
+    background: rgb(22, 24, 26);
+    color: white;
+}
+.modal-body {
+    input, textarea, label {
+        background: rgb(25, 25, 27);
+        color: white;
+    }
+} */

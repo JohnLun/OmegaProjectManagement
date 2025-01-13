@@ -15,7 +15,8 @@ function Column({ name, endpoint, onRegisterFetchData, refreshColumns }) {
             } else {
                 console.error("Failed to fetch data for:", endpoint);
             }
-        } catch (error) {
+        } 
+        catch (error) {
             console.error("Error fetching data:", error);
         }
     }
@@ -37,7 +38,13 @@ function Column({ name, endpoint, onRegisterFetchData, refreshColumns }) {
 
     return (
         <>
-            <div className="row p-2 bg-dark justify-content-center sticky-top">{name}</div>
+            <div className="column-head">
+                <div className="column-name">
+                    <div className="dot"></div>
+                    <span>{name}</span>
+                </div>
+                <span className="column-count">{stories.length}</span>
+            </div>
             {stories.map((story) => (
                 <Story
                     key={story.storyId}
@@ -47,9 +54,6 @@ function Column({ name, endpoint, onRegisterFetchData, refreshColumns }) {
                     refreshColumns={refreshColumns} // Pass the refreshColumns prop to Story
                 />
             ))}
-
-
-
         </>
     );
 }
