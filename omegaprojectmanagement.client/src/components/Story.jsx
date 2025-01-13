@@ -1,7 +1,9 @@
 import { useEffect, useState } from 'react';
-import { Draggable } from "react-beautiful-dnd";
 import './Story.css';
 import trash3 from "../assets/trash3.svg";
+import foreward from "../assets/arrow_forward_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg";
+import backward from "../assets/arrow_back_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg";
+
 
 
 function Story({story, onDelete}){
@@ -24,18 +26,28 @@ function Story({story, onDelete}){
         }
     }
 
+    async function foreWard(){
+
+    }
+
+    async function back(){
+
+    }
+
 
 
     return (
         <div className="row" key={story.storyId}>
             <div className="col-12">
                 <div className="card mb-4"> {/* Add margin-bottom to space out the cards */}
-                    <div className="card-body">    
+                    <div className="card-body d-flex flex-column position-relative">    
                         <div className="position-absolute top-0 end-0">
                             <button className=" btn btn-danger">
                                 <img src={trash3} alt="trash" width="16" height="16" onClick={handleTrash}/>
                             </button>
                         </div>
+
+                        
                         <h5 className="card-title d-flex align-items-center">
                             <span className="text-muted me-2">#{story.storyId}</span>
                             {story.storyName}
@@ -46,6 +58,21 @@ function Story({story, onDelete}){
                                 {story.firstName} {story.lastName}
                             </small>
                         </p>
+
+
+                        <div className="mt-auto d-flex justify-content-end">
+                            <button className="btn btn-success me-2">
+                                <img src={backward} alt="back" width="16" height="16" onClick={foreWard} />
+                            </button>
+
+                            <button className="btn btn-success">
+                                <img src={foreward} alt="foreward" width="16" height="16" onClick={back} />
+                            </button>
+
+                            
+
+                        </div>
+
                     </div>
                 </div>
             </div>

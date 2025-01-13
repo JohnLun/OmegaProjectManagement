@@ -66,7 +66,7 @@ function App() {
           <h2 className="navbar-heading text-nowrap p-3">Omega PM</h2>
           <div className="d-flex justify-content-end w-100">
             <button
-              className="btn btn-danger btn-lg my-2 me-3 border border-dark"
+              className="btn btn-primary btn-lg my-2 me-3 border border-dark"
               type="button"
               onClick={handleCreateStory}
             >
@@ -77,28 +77,28 @@ function App() {
 
         <div className="container-fluid mt-4" style={{ height: "calc(100vh - 56px)" }}>
           <div className="d-flex justify-content-between h-100" style={{ gap: "1rem" }}>
-            <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                 name="Backlog"
                 endpoint="backlog"
                 onStorySaved={(fetchData) => handleRegisterFetchData("backlog", fetchData)}
               />
             </div>
-            <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                 name="In Progress"
                 endpoint="in-progress"
                 onStorySaved={(fetchData) => handleRegisterFetchData("in-progress", fetchData)}
               />
             </div>
-            <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                 name="Ready For Testing"
                 endpoint="in-testing"
                 onStorySaved={(fetchData) => handleRegisterFetchData("in-testing", fetchData)}
               />
             </div>
-            <div className="bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                 name="Completed"
                 endpoint="in-complete"
