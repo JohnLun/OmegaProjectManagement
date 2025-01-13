@@ -124,7 +124,8 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                 <div className="col-12">
                     <div className="card mb-4">
                         <div className="card-body d-flex flex-column position-relative">
-                            <div className="position-absolute top-0 end-0">
+                        <span className="text-muted me-2 position-absolute top-0 start-0">#{story.storyId}</span>
+                        <div className="position-absolute top-0 end-0">
                                 <button className="btn btn-danger" onClick={(e) => { 
                                     e.stopPropagation(); 
                                     handleTrash(); 
@@ -132,12 +133,9 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                                     <img src={trash3} alt="trash" width="16" height="16" />
                                 </button>
                             </div>
-                            <h5 className="card-title">
-                                <span className="text-muted me-2">#{story.storyId}</span>
-                                {story.storyName}
-                            </h5>
-                            <p className="card-text overflow-hidden">{story.storyDescription}</p>
-                            <p className="card-text">
+                            <h3 className="card-title pt-2 text-nowrap overflow-hidden text-truncate">{story.storyName}</h3>
+                            <p className="card-text text-nowrap overflow-hidden text-truncate">{story.storyDescription}</p>
+                            <p className="card-text" >
                                 <small className="text-muted">
                                     {story.firstName} {story.lastName}
                                 </small>
