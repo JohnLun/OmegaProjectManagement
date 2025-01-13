@@ -63,8 +63,8 @@ function App() {
   return (
     <>
       <div className="bg-secondary">
-        <nav className="navbar navbar-expand-lg navbar-dark bg-white rounded">
-          <h2 className="navbar-heading text-nowrap p-3">Omega PM</h2>
+        <nav className="navigation navbar navbar-expand-lg rounded">
+          <h2 className="fw-bold navbar-heading text-nowrap p-3">Omega PM</h2>
           <div className="d-flex justify-content-end w-100">
             <button
               className="btn btn-primary btn-lg my-2 me-3 border border-dark"

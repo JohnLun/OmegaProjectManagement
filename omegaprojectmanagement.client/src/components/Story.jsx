@@ -126,7 +126,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                         <div className="card-body d-flex flex-column position-relative">
                         <span className="text-muted me-2 position-absolute top-0 start-0">#{story.storyId}</span>
                         <div className="position-absolute top-0 end-0">
-                                <button className="btn btn-danger" onClick={(e) => { 
+                                <button className="btn btn-danger mt-1 mx-1" onClick={(e) => { 
                                     e.stopPropagation(); 
                                     handleTrash(); 
                                 }}>
@@ -141,7 +141,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                                 </small>
                             </p>
                             <div className="mt-auto d-flex justify-content-end">
-                                <button className="position-absolute bottom-0 start-0 btn btn-success me-2" onClick={(e) => { 
+                                <button className="position-absolute  bottom-0 start-0 btn btn-success me-2" onClick={(e) => { 
                                     e.stopPropagation(); 
                                     handleMoveLeft(); 
                                 }}>
