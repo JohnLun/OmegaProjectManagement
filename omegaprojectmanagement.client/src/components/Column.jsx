@@ -1,62 +1,51 @@
 import { useEffect, useState } from 'react';
-//import axios from "axios";
-import { DragDropContext, Droppable, Draggable } from "react-beautiful-dnd";
 import Story from "./Story";
 import './Column.css';
 
-function Column({ name, endpoint, onStorySaved }) {
-    const [stories, setStories] = useState(
-        [{
-            firstName: "",
-            lastName: "",
-            statusName: "",
-            storyDescription: "",
-            storyId: -1,
-            storyName: ""
-        }]);
+function Column({ name, endpoint, onRegisterFetchData, refreshColumns }) {
+    const [stories, setStories] = useState([]);
 
-    async function fetchColumn() {
+    async function fetchData() {
         const url = `https://localhost:7173/api/${endpoint}`;
         try {
             const response = await fetch(url);
-            if(response.ok){
-                return response.json();
+            if (response.ok) {
+                const data = await response.json();
+                setStories(data);
             } else {
-                console.error("Couldn't fetch data for: ", endpoint);
+                console.error("Failed to fetch data for:", endpoint);
             }
         } catch (error) {
-            console.error(error);
+            console.error("Error fetching data:", error);
         }
-        
     }
 
-    async function fetchData() {
-        const res = await fetchColumn(); // Wait for fetchColumn to resolve
-        setStories(res);
-    }
-
-    useEffect(()=> {
+    useEffect(() => {
         fetchData();
+        if (onRegisterFetchData) {
+            onRegisterFetchData(name, fetchData);
+        }
     }, [endpoint]);
-
-    useEffect(() => {
-    }, [stories]);
-
-    useEffect(() => {
-        fetchData(); // Pass the fetchData function to the parent
-    }, [onStorySaved]);
 
     const handleDeleteStory = () => {
         fetchData();
     };
-    
+
+    const handleUpdateStory = () => {
+        fetchData();
+    };
 
     return (
         <>
             <div className="row">{name}</div>
-            
             {stories.map((story) => (
-                <Story story={story} onDelete={handleDeleteStory}></Story>
+                <Story
+                    key={story.storyId}
+                    story={story}
+                    onDelete={handleDeleteStory}
+                    onUpdate={handleUpdateStory}
+                    refreshColumns={refreshColumns} // Pass the refreshColumns prop to Story
+                />
             ))}
         </>
     );

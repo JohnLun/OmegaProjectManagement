@@ -79,30 +79,34 @@ function App() {
           <div className="d-flex justify-content-between h-100" style={{ gap: "1rem" }}>
             <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
-                name="Backlog"
-                endpoint="backlog"
-                onStorySaved={(fetchData) => handleRegisterFetchData("backlog", fetchData)}
+                  name="Backlog"
+                  endpoint="backlog"
+                  onRegisterFetchData={(columnName, fetchData) => handleRegisterFetchData(columnName, fetchData)}
+                  refreshColumns={fetchDataCallbacks}
               />
             </div>
             <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                 name="In Progress"
                 endpoint="in-progress"
-                onStorySaved={(fetchData) => handleRegisterFetchData("in-progress", fetchData)}
+                onRegisterFetchData={(columnName, fetchData) => handleRegisterFetchData(columnName, fetchData)}
+                refreshColumns={fetchDataCallbacks}
+            />
+            </div>
+            <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+              <Column
+                 name="Ready For Testing"
+                 endpoint="in-testing"
+                 onRegisterFetchData={(columnName, fetchData) => handleRegisterFetchData(columnName, fetchData)}
+                 refreshColumns={fetchDataCallbacks}
               />
             </div>
             <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
-                name="Ready For Testing"
-                endpoint="in-testing"
-                onStorySaved={(fetchData) => handleRegisterFetchData("in-testing", fetchData)}
-              />
-            </div>
-            <div className="shadow-lg bg-dark text-white p-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
-              <Column
-                name="Completed"
-                endpoint="in-complete"
-                onStorySaved={(fetchData) => handleRegisterFetchData("in-complete", fetchData)}
+                 name="Completed"
+                 endpoint="in-complete"
+                 onRegisterFetchData={(columnName, fetchData) => handleRegisterFetchData(columnName, fetchData)}
+                 refreshColumns={fetchDataCallbacks}
               />
             </div>
           </div>
