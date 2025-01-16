@@ -16,7 +16,10 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
             const response = await fetch(url, { method: 'DELETE' });
             if (response.ok) {
                 console.log(`Story with ID ${story.storyId} deleted successfully.`);
-                onDelete();
+                refreshColumns["Backlog"]?.();
+              refreshColumns["In Progress"]?.();
+              refreshColumns["Ready For Testing"]?.();
+              refreshColumns["Completed"]?.();
             } else {
                 console.error(`Failed to delete story. Status: ${response.status}`);
             }
