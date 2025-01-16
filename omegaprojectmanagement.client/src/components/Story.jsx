@@ -3,6 +3,7 @@ import './Story.css';
 import trash3 from "../assets/trash3.svg";
 import forward from "../assets/arrow_forward_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg";
 import backward from "../assets/arrow_back_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg";
+import Draggable from './Draggable';
 
 function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
     const [showModal, setShowModal] = useState(false);
@@ -115,7 +116,8 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
 
     return (
         <>
-            <div 
+        <Draggable id={story.storyId}>
+        <div 
                 className="row " 
                 key={story.storyId} 
                 onClick={handleStoryClick} // Trigger onClick when the card is clicked
@@ -158,6 +160,8 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                     </div>
                 </div>
             </div>
+        </Draggable>
+            
 
             {showModal && (
                 <div className="modal fade show" style={{ display: "block", backgroundColor: "rgba(0, 0, 0, 0.5)" }}>

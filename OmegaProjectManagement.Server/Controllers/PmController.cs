@@ -205,6 +205,33 @@ namespace OmegaProjectManagement.Server.Controllers
             return Ok();
         }
 
+        [HttpGet("story/{id}")]
+        public async Task<IActionResult> GetStory(int id)
+        {
+             var story = await _db.Stories
+                .Include(s => s.status)
+                .Include(e => e.employee)
+                .FirstOrDefaultAsync(s => s.StoryId == id);
+            
+            if (story == null)
+            {
+                return NotFound($"Story with ID {id} not found.");
+            }
+
+            StoryDto temp = new StoryDto
+            {
+                StoryId = story.StoryId,
+                StoryDescription = story.StoryDescription,
+                StoryName = story.StoryName,
+                FirstName = story.employee.FirstName,
+                LastName = story.employee.LastName,
+                StatusName = story.status.StatusName
+            };
+
+            return Ok(temp);
+
+        }
+
     }
 
     
