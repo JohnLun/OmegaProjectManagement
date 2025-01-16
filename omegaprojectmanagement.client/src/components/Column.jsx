@@ -91,8 +91,12 @@ function Column({ name, endpoint, onRegisterFetchData, refreshColumns }) {
 
     return (
         <Droppable id={name} onDrop={handleDrop}>
-            <div className="row p-2 bg-dark justify-content-center sticky-top text-light">
-                {name}
+            <div className="column-head sticky-top bg-dark p-2">
+                <div className="column-name">
+                    <div className="dot"></div>
+                        <span>{name}</span>
+                </div>
+                <span className="column-count">{stories.length}</span>
             </div>
             {stories.map((story) => (
                 <Story
