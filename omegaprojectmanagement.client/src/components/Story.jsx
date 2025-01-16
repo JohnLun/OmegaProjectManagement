@@ -198,7 +198,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                     </div>
                     <div className="modal-footer">
                         <button type="button" className="btn btn-secondary" onClick={handleCloseModal}>Close</button>
-                        <button type="button" className="btn btn-primary" onClick={handleSaveStory}>Save Story</button>
+                        <button type="button" className="save btn btn-primary" onClick={handleSaveStory}>Save</button>
                     </div>
                     </div>
                 </div>

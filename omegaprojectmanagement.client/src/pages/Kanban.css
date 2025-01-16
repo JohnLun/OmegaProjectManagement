@@ -27,6 +27,32 @@
   background-color: #c49102;
 }
 
+.create-story:hover{
+  background-color: orange;
+
+}
+
+.create-story:active:focus{
+  background-color: red;
+}
+
+.save{
+  background-color: #c49102;
+}
+
+.save:hover{
+  background-color: orange;
+
+}
+
+.btn-close{
+  background-color: ivory;
+}
+
+.save:active:focus{
+  background-color: red;
+}
+
 .modal-content{
 
   background-color: #212121;
