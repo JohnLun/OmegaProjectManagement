@@ -16,5 +16,31 @@
   }
   
   .navigation{
-    background-color: #212121;
+    background-color: #343434;
   }
+
+.total-background{
+  background-color: #212121;
+}
+
+.create-story{
+  background-color: #c49102;
+}
+
+.modal-content{
+
+  background-color: #212121;
+}
+
+.form-control{
+  background-color: #d3d3d3;
+  color: #212121;
+}
+
+.form-label{
+  color: ivory;
+}
+
+.modal-title{
+  color: ivory;
+}
