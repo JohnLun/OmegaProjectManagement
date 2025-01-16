@@ -78,7 +78,7 @@ function App() {
 
         <div className="container-fluid mt-4" style={{ height: "calc(100vh - 56px)" }}>
           <div className="d-flex justify-content-between h-100" style={{ gap: "1rem" }}>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                   name="Backlog"
                   endpoint="backlog"
@@ -86,7 +86,7 @@ function App() {
                   refreshColumns={fetchDataCallbacks}
               />
             </div>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                 name="In Progress"
                 endpoint="in-progress"
@@ -94,7 +94,7 @@ function App() {
                 refreshColumns={fetchDataCallbacks}
             />
             </div>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                  name="Ready For Testing"
                  endpoint="in-testing"
@@ -102,7 +102,7 @@ function App() {
                  refreshColumns={fetchDataCallbacks}
               />
             </div>
-            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white px-4 rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
+            <div className="custom-scrollbar overflow-auto shadow-lg bg-dark text-white rounded border border-white h4" style={{ flex: "1", maxWidth: "24%" }}>
               <Column
                  name="Completed"
                  endpoint="in-complete"

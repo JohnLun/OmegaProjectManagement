@@ -117,51 +117,36 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
 
     return (
         <>
-        <Draggable id={story.storyId}>
-        <div 
-                className="row" 
-                key={story.storyId} 
-                // Trigger onClick when the card is clicked
-                onClick={handleStoryClick} 
-                
-            >
-                <div className="col-12">
-                    <div className="card mb-4">
-                        <div className="card-body d-flex flex-column position-relative">
-                        <span className="text-muted me-2 position-absolute top-0 start-0">#{story.storyId}</span>
-                        <div className="position-absolute top-0 end-0">
-                                <button className="btn btn-danger mt-1 mx-1" onClick={(e) => { 
-                                    e.stopPropagation(); 
-                                    handleTrash(); 
-                                }}>
-                                    <img src={trash3} alt="trash" width="16" height="16" />
-                                </button>
-                            </div>
-                            <h3 className="card-title pt-4 text-nowrap overflow-hidden text-truncate">{story.storyName}</h3>
-                            <p className="card-text text-nowrap overflow-hidden text-truncate">{story.storyDescription}</p>
-                            <p className="card-text pb-2" >
-                                <small className="text-muted">
-                                    {story.firstName} {story.lastName}
-                                </small>
-                            </p>
-                            {/* <div className="mt-auto d-flex justify-content-end">
-                                <button className="position-absolute  bottom-0 start-0 btn btn-success me-2" onClick={(e) => { 
-                                    e.stopPropagation(); 
-                                    handleMoveLeft(); 
-                                }}>
-                                    <img src={backward} alt="left" width="16" height="16" />
-                                </button>
-                                <button className="position-absolute bottom-0 end-0 btn btn-success" onClick={(e) => { 
-                                    e.stopPropagation(); 
-                                    handleMoveRight(); 
-                                }}>
-                                    <img src={forward} alt="right" width="16" height="16" />
-                                </button>
-                            </div> */}
-                        </div>
-                    </div>
+        <Draggable id={story.storyId} className="temp">
+            <div 
+                    className="card" 
+                    key={story.storyId} 
+                    // Trigger onClick when the card is clicked
+                    onClick={handleStoryClick} 
+                    
+                >
+                    <div className="card-head">
+                    <span>{story.storyId}.</span>
+                    <span><b>{story.storyName}</b></span>
+                </div>
+                <p className="card-desc text-truncate">{story.storyDescription}</p>
+                <div className="card-user">
+                    
+                    <p>{story.firstName} {story.lastName}</p>
+                </div>
+                <div className="card-btns">
+
+
+                    <button className="delete-btn" onClick={(e) => { 
+                        e.stopPropagation(); 
+                        handleTrash(); 
+                    }}>
+                        <img src={trash3} draggable="false" width="16" height="16" />
+                    </button>
                 </div>
             </div>
+                    
+                 
         </Draggable>
             
 

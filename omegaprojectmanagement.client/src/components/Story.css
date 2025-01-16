@@ -2,11 +2,14 @@
     background-color: #ffffff;
     border: 1px solid #ccc;
     border-radius: 5px;
-    padding: 10px;
     margin-bottom: 10px;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     cursor: grab;
+}
+
+.temp {
+    width: 100% !important;
 }
 
 .card:hover{
@@ -35,3 +38,58 @@
   .save:active:focus{
     background-color: red;
   }
+.card {
+    background: rgb(22, 24, 26);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 1rem;
+    padding: 1rem;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    
+
+    p { margin: 0; }
+}
+
+.card-head {
+    font-size: 1rem;
+    display: flex;
+    align-items: start;
+    gap: .5rem;
+}
+
+.card-desc {
+    opacity: .75;
+}
+
+.card-user {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+
+    img {
+        width: 1.25rem;
+    }
+}
+
+.card-btns {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 1rem;
+    gap: 1rem;
+
+    button {
+        flex: 1;
+        border: none;
+        border-radius: 2rem;
+        padding: .25rem 1rem;
+    }
+}
+
+.delete-btn { background: red; }
+.arrow-btn { background: black; }

@@ -11,6 +11,7 @@ function Draggable({ id, children }) {
             draggable
             onDragStart={handleDragStart}
             style={{ cursor: 'grab' }}
+            className='w-100'
         >
             {children}
         </div>
