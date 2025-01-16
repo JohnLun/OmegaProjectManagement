@@ -13,16 +13,12 @@
 }
 
 .card:hover{
-    background-color: #daedf4;
-}
-
-.row{
+    background-color: #343434;
     cursor: grab;
-
-
 }
 
-.row:active{
+
+.card:active{
     cursor: grabbing;
 }
 
@@ -36,7 +32,7 @@
   }
   
   .save:active:focus{
-    background-color: red;
+    background-color: #ff9d00;
   }
 .card {
     background: rgb(22, 24, 26);
@@ -91,5 +87,12 @@
     }
 }
 
-.delete-btn { background: red; }
+.delete-btn { 
+    background: red; 
+
+    button{
+        padding: 10px 24px;
+
+    }
+}
 .arrow-btn { background: black; }

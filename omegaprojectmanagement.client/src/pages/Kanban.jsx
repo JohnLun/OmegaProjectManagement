@@ -63,17 +63,15 @@ function App() {
   return (
     <>
       <div className="total-background">
-        <nav className="navigation navbar navbar-expand-lg rounded">
-          <h2 className="fw-bold navbar-heading text-light text-nowrap p-3">Omega PM</h2>
-          <div className="d-flex justify-content-end w-100">
+        <nav>
+          <h2>Omega PM</h2>
             <button
-              className="create-story btn btn-primary btn-lg my-2 me-3 border border-dark"
+              className="create-story btn btn-primary btn my-2 me-3 border border-dark"
               type="button"
               onClick={handleCreateStory}
             >
               Create Story
             </button>
-          </div>
         </nav>
 
         <div className="container-fluid mt-4" style={{ height: "calc(100vh - 56px)" }}>
