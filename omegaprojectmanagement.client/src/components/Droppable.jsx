@@ -19,7 +19,7 @@ function Droppable({ id, onDrop, children }) {
         <div
             onDrop={handleDrop}
             onDragOver={handleDragOver}
-            style={{ minHeight: '200px', border: '2px dashed #ccc', padding: '10px' }}
+            style={{ minHeight: '100%',  padding: '10px' }}
         >
             {children}
         </div>

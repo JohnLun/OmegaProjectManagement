@@ -12,3 +12,13 @@
 .card:hover{
     background-color: #daedf4;
 }
+
+.row{
+    cursor: grab;
+
+
+}
+
+.row:active{
+    cursor: grabbing;
+}

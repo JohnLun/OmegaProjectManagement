@@ -1,8 +1,6 @@
 import { useEffect, useState } from 'react';
 import './Story.css';
 import trash3 from "../assets/trash3.svg";
-import forward from "../assets/arrow_forward_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg";
-import backward from "../assets/arrow_back_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.svg";
 import Draggable from './Draggable';
 
 function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
@@ -118,10 +116,11 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
         <>
         <Draggable id={story.storyId}>
         <div 
-                className="row " 
+                className="row" 
                 key={story.storyId} 
-                onClick={handleStoryClick} // Trigger onClick when the card is clicked
-                style={{ cursor: "pointer" }} // Optional: Add pointer cursor for better UX
+                // Trigger onClick when the card is clicked
+                onClick={handleStoryClick} 
+                
             >
                 <div className="col-12">
                     <div className="card mb-4">
@@ -142,7 +141,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                                     {story.firstName} {story.lastName}
                                 </small>
                             </p>
-                            <div className="mt-auto d-flex justify-content-end">
+                            {/* <div className="mt-auto d-flex justify-content-end">
                                 <button className="position-absolute  bottom-0 start-0 btn btn-success me-2" onClick={(e) => { 
                                     e.stopPropagation(); 
                                     handleMoveLeft(); 
@@ -155,7 +154,7 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
                                 }}>
                                     <img src={forward} alt="right" width="16" height="16" />
                                 </button>
-                            </div>
+                            </div> */}
                         </div>
                     </div>
                 </div>
