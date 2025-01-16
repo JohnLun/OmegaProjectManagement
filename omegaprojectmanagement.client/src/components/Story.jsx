@@ -17,9 +17,9 @@ function Story({ story, onDelete, onUpdate, refreshColumns, onClick }) {
             if (response.ok) {
                 console.log(`Story with ID ${story.storyId} deleted successfully.`);
                 refreshColumns["Backlog"]?.();
-              refreshColumns["In Progress"]?.();
-              refreshColumns["Ready For Testing"]?.();
-              refreshColumns["Completed"]?.();
+                refreshColumns["In Progress"]?.();
+                refreshColumns["Ready For Testing"]?.();
+                refreshColumns["Completed"]?.();
             } else {
                 console.error(`Failed to delete story. Status: ${response.status}`);
             }
